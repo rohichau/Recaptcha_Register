@@ -3,11 +3,13 @@ package com.imagekit.registration.api;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.imagekit.registration.dto.User;
@@ -19,10 +21,7 @@ public interface RegistrationApi {
 	public ModelAndView showRegistrationForm(HttpServletRequest request);
 
 	@PostMapping
-	public ModelAndView registerUserAccount(@ModelAttribute("user") @Valid User accountDto, BindingResult result,
+	public ResponseEntity<?> registerUserAccount(@ModelAttribute("user") @Valid User accountDto,
+			@RequestParam(name = "g-recaptcha-response") String recaptcha, BindingResult result,
 			HttpServletRequest request);
-
-//	@GetMapping(value = "/")
-//	String index();
-
 }
