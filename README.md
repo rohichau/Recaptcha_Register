@@ -8,6 +8,7 @@ TECH USED:
 - Spring Security to handle user registration.
 - Mongo DB configurations are used for external mongo setup locally. In-memory
   mongo db could be setup using flapdoodle library.
+- Basic bootstrap for registration form.
 
 APPLICATION USAGE:
 
