@@ -10,16 +10,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.imagekit.registration.dto.UserDto;
+import com.imagekit.registration.dto.User;
 
-@RequestMapping
-public interface AuthenticationApi {
+@RequestMapping("registration")
+public interface RegistrationApi {
 
-	@GetMapping(value = "/register")
-	public ModelAndView showRegistrationForm();
+	@GetMapping
+	public ModelAndView showRegistrationForm(HttpServletRequest request);
 
-	@PostMapping(value = "/register")
-	public ModelAndView registerUserAccount(@ModelAttribute("user") @Valid UserDto accountDto, BindingResult result,
+	@PostMapping
+	public ModelAndView registerUserAccount(@ModelAttribute("user") @Valid User accountDto, BindingResult result,
 			HttpServletRequest request);
+
+//	@GetMapping(value = "/")
+//	String index();
 
 }

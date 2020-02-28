@@ -3,7 +3,7 @@ package com.imagekit.registration.dto;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-public class UserDto {
+public class User {
 
 	@NotNull
 	@NotEmpty
@@ -18,13 +18,13 @@ public class UserDto {
 	@NotEmpty
 	private String email;
 
-	private String ip;
+//	private String ip;
 
-	public UserDto() {
+	public User() {
 
 	}
 
-	public UserDto(@NotNull @NotEmpty String name, @NotNull @NotEmpty String password, String matchingPassword,
+	public User(@NotNull @NotEmpty String name, @NotNull @NotEmpty String password, String matchingPassword,
 			@NotNull @NotEmpty String email) {
 		super();
 		this.name = name;
@@ -89,18 +89,18 @@ public class UserDto {
 		this.email = email;
 	}
 
-	/**
-	 * @return the ip
-	 */
-	public String getIp() {
-		return ip;
-	}
-
-	/**
-	 * @param ip the ip to set
-	 */
-	public void setIp(String ip) {
-		this.ip = ip;
-	}
+//	/**
+//	 * @return the ip
+//	 */
+//	public String getIp() {
+//		return ip;
+//	}
+//
+//	/**
+//	 * @param ip the ip to set
+//	 */
+//	public void setIp(String ip) {
+//		this.ip = ip;
+//	}
 
 }

@@ -1,13 +1,17 @@
 package com.imagekit.registration.model;
 
-import javax.persistence.Id;
-
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "users")
 public class UserEntity {
+
+	@Transient
+	public static final String SEQUENCE_NAME = "users_sequence";
+
 	@Id
-	private String id;
+	private long id;
 	private String name;
 	private String email;
 	private String password;
@@ -16,14 +20,14 @@ public class UserEntity {
 	/**
 	 * @return the id
 	 */
-	public String getId() {
+	public long getId() {
 		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(String id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
