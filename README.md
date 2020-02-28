@@ -1,4 +1,4 @@
-# Recaptcha_login
+# Register with Google Recaptcha
 Project to demonstrate recaptcha usage in user login
 
 TECH USED:
