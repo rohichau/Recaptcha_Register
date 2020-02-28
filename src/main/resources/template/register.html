@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Registration Form</title>
+<title>Image Kit Registration Form</title>
 <!-- <!-- link rel="stylesheet" type="text/css" th:href="@{/css/registration.css}" /-->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -13,7 +13,7 @@
 
 		<div class="row col-lg-4 col-lg-offset-4" style="margin-top: 40px; background-color: #fff; padding: 20px; border: solid 1px #ddd;">
 			<form autocomplete="off" action="#" th:action="@{/registration}" th:object="${user}" method="post" class="form-signin" role="form">
-				<h3 class="form-signin-heading">Registration Form</h3>
+				<h3 class="form-signin-heading">Image Kit Registration Form</h3>
 				<div class="form-group">
 					<div class="">
 						<input type="text" th:field="*{name}" placeholder="Name" class="form-control" />
