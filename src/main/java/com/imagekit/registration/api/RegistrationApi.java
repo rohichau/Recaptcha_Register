@@ -22,6 +22,6 @@ public interface RegistrationApi {
 
 	@PostMapping
 	public ResponseEntity<?> registerUserAccount(@ModelAttribute("user") @Valid User accountDto,
-			@RequestParam(name = "g-recaptcha-response") String recaptcha, BindingResult result,
-			HttpServletRequest request);
+			@RequestParam(name = "g-recaptcha-response", defaultValue = "NA", required = false) String recaptcha,
+			BindingResult result, HttpServletRequest request);
 }

@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
@@ -47,15 +48,18 @@ public class RegistrationController implements RegistrationApi {
 		if (result.hasErrors()) {
 			modelAndView.addObject("errorMessage", "Errors in the input");
 		}
-		String captchaVerifyMessage = recaptchaService.verifyCaptcha(recaptcha, request.getRemoteAddr());
-		if (!StringUtils.isEmpty(captchaVerifyMessage)) {
-			Map<String, Object> response = new HashMap<>();
-			response.put("message", captchaVerifyMessage);
-			return ResponseEntity.badRequest().body(response);
+		if (recaptcha.equals("NA")) {
+			userService.saveUser(userDto, request.getRemoteAddr());
+		} else {
+			String captchaVerifyMessage = recaptchaService.verifyCaptcha(recaptcha, request.getRemoteAddr());
+			if (!StringUtils.isEmpty(captchaVerifyMessage)) {
+				Map<String, Object> response = new HashMap<>();
+				response.put("message", captchaVerifyMessage);
+				return ResponseEntity.badRequest().body(response);
+			} else {
+				userService.saveUser(userDto, request.getRemoteAddr());
+			}
 		}
-//		modelAndView.addObject("user", new User());
-//		modelAndView.setViewName("register.html");
-		userService.saveUser(userDto, request.getRemoteAddr());
-		return ResponseEntity.ok().build();
+		return new ResponseEntity<>("USER REGISTERED SUCCESSFULLY", HttpStatus.OK);
 	}
 }

@@ -16,25 +16,11 @@ import com.imagekit.registration.authentication.LoginSuccessHandler;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-//	@Autowired
-//	private BCryptPasswordEncoder bCryptPasswordEncoder;
-
 	@Autowired
 	private LoginSuccessHandler sucessHandler;
-//
-//	@Autowired
-//	private DataSource dataSource;
-
-//	@Value("${spring.queries.users-query}")
-//	private String usersQuery;
-//
-//	@Value("${spring.queries.roles-query}")
-//	private String rolesQuery;
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//		auth.jdbcAuthentication().usersByUsernameQuery(usersQuery).authoritiesByUsernameQuery(rolesQuery)
-//		auth.jdbcAuthentication().dataSource(dataSource);//.passwordEncoder(bCryptPasswordEncoder);
 		auth.inMemoryAuthentication().withUser("imagekit").password("pass123").roles("ADMIN").and().withUser("rohit")
 				.password("pass123").roles("USER");
 	}
