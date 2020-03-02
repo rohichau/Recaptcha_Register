@@ -25,3 +25,28 @@ APPLICATION USAGE:
 
 6.) After successful registration, hit the endpoint again or refresh to go 
 back to the registration screen.
+
+APPLICATION SETUP FOR VSCODE:
+
+1.) Install Java Extension pack for VS CODE (https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
+2.) View Menu -> CommandPalette -> Tasks: Configure Task
+3.) Change the options as follows: 
+    .
+    .
+    .
+    "tasks": [
+        {
+            "label": "install",
+            "type": "shell",
+            "command": "mvn -B install",
+            "group": "build"
+        }
+    ]
+4.) View Menu -> CommandPalette -> Tasks: Run Build Task -> install
+
+5.) After succesfull install, navigate to target -> registration-0.0.1-SNAPSHOT.jar
+
+6.) Open Terminal and run the jar as : java -jar registration-0.0.1-SNAPSHOT.jar
+
+7.) You can hit the application from localhost after that by follwing the steps given in 'APPLICATION USAGE' section. 
+
